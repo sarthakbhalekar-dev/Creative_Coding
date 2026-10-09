@@ -1,31 +1,33 @@
-void setup() {
-  size(600, 600);
+PFont myFont;
+
+void setup(){
+    size(600,600);
 }
 
-void draw() {
 
-  // Setting White Background
-  background(255);
 
-  // Centre Variables
-  float centreX = width/2;
-  float centreY = height/2;
+void draw(){
 
-  // 1. White Circle with Red Outline
-  stroke (220, 36, 31); // Red Colour
-  strokeWeight(50);   // Thick Outline
-  circle(centreX, centreY, 350);
+    background(255);
 
-  // 2. Blue Bar
-  noStroke();
-  fill(0, 25, 168);  // Blue Colour
-  rectMode (CENTER); // Align Rectangle to Center
-  rect(centreX, centreY, 480, 90);
+    float centreX = width/2;
+    float centreY = height/2;
+    
+    stroke(220,36,31);
+    strokeWeight(50);
+    fill (255);
+    circle(centreX, centreY,350);
 
-  // 3. Text
-  String sign = "UNDERGROUND";
-  fill (255);
-  textAlign (CENTER, CENTER);
-  textSize(50);
-  text(sign, centreX, centreY);
+    noStroke();
+    fill(0,25,168);
+    rectMode (CENTER);
+    rect(centreX, centreY, 480, 90);
+
+    myFont = createFont("Johnston", 32);
+    textFont(myFont);
+    fill (255);
+    textSize(60);
+    textAlign(CENTER,CENTER);
+    text("UNDERGROUND", centreX, centreY);
+
 }
