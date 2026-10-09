@@ -12,4 +12,5 @@ fill(0);
 circle(30,40,10);
 
 //Mouth
-line(20,80,75,80);
+noFill();
+arc(45,75,20,10,0,PI);
