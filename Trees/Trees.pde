@@ -6,9 +6,9 @@ void setup()
  
 void draw()
 {
-  color skyColour    = color(158, 238, 247);
-  color groundColour = color(156, 245, 170);
-  color leafColour   = color(82, 144, 97);
+  color skyColour    = color(220, 110, 230);
+  color groundColour = color(215, 250, 50);
+  color leafColour   = color(250, 150, 50);
   color trunkColour  = color(95, 57, 26);
  
   background(skyColour);
@@ -22,7 +22,7 @@ void draw()
   fill(trunkColour);
   rect(treeX, treeY, 20, 70);
   fill(leafColour);
-  ellipse(treeX+10, treeY-30, 70, 90);
+  circle(treeX+10, treeY-30, 90);
  
   // Draw second tree to the right and down a bit
   treeX = treeX + 100;
@@ -30,7 +30,7 @@ void draw()
   fill(trunkColour);
   rect(treeX, treeY, 20, 70);
   fill(leafColour);
-  ellipse(treeX+10, treeY-30, 70, 90);
+  circle(treeX+10, treeY-30, 90);
  
   // Draw third tree to the right and up a bit
   treeX = treeX + 100;
@@ -38,5 +38,5 @@ void draw()
   fill(trunkColour);
   rect(treeX, treeY, 20, 70);
   fill(leafColour);
-  ellipse(treeX+10, treeY-30, 70, 90);
+  circle(treeX+10, treeY-30, 90);
 }
