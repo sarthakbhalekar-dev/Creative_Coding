@@ -4,4 +4,5 @@ float changeOwed;
 float totalCost = snackPrice + drinkPrice;
 float mealDeal= totalCost * 0.10;
 changeOwed = 10.00 - (totalCost - mealDeal);
-println (changeOwed);
+
+println ("Total Change Owed: $ " + changeOwed);
