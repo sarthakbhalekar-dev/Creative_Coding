@@ -16,18 +16,18 @@ void draw(){
     stroke(220,36,31);
     strokeWeight(50);
     fill (255);
-    circle(centreX, centreY,350);
+    circle(mouseX, mouseY,350);
 
     noStroke();
     fill(0,25,168);
     rectMode (CENTER);
-    rect(centreX, centreY, 480, 90);
+    rect(mouseX, mouseY, 480, 90);
 
     myFont = createFont("Johnston", 32);
     textFont(myFont);
     fill (255);
     textSize(60);
     textAlign(CENTER,CENTER);
-    text("UNDERGROUND", centreX, centreY);
+    text("UNDERGROUND", mouseX, mouseY);
 
 }
