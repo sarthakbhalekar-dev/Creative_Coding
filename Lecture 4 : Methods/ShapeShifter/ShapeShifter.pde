@@ -11,18 +11,25 @@ void draw()
   {
     if (mouseX < width/2)
     {
-      fill(250, 207, 35);  // colour for sun
+      fill(255,0,0); 
     } 
     else
     {
-      fill(255, 255, 255);  // colour for moon
+      fill(0,255,0); 
     }
     ellipse(mouseX, mouseY, 80, 80);
   } 
-  else
-  {
-    fill(50, 50, 15);  // colour for ground
+  else{
+  if (mouseX > width/2){
+    fill(0,0,255);  
     rectMode(CENTER);
     rect(mouseX, mouseY, 80, 80);
   }
+  else{
+    fill(255,255,0); 
+    rectMode(CENTER);
+    rect(mouseX, mouseY, 80, 80);
+
+  }
+}
 }
