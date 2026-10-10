@@ -1,5 +1,5 @@
 // -- Global variables are declared first
-
+PFont myFont;
 // ball position
 float xPos;
 float yPos;
@@ -40,6 +40,8 @@ void setup() {
 
   vx = 3;             
   vy = 1.5;
+
+  myFont = createFont("Impact", 48);
 }
 
 void draw() {
@@ -85,6 +87,7 @@ void bounceOffWalls() {
 void gameOver() {
   fill(0);
   textAlign(CENTER, CENTER);
+  textFont(myFont);
   text("GAME OVER!", width/2, height/2);
   frameRate(0);
 }
