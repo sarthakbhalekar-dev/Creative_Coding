@@ -1,7 +1,7 @@
 void setup()
 {
   size(400,500);
-  background(255,236,149);
+  background(255);
   fill(203,118,122);
   textSize(32);
 }
@@ -9,5 +9,5 @@ void setup()
 void draw()
 {
   fill(frameCount%255);
-  text("Hi",frameCount%width,frameCount);
+  text("Hello! c:",frameCount%width,frameCount);
 }

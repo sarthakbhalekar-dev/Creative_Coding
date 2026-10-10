@@ -10,10 +10,10 @@ void draw(){
     background(255);
     
     float students = mouseX;
-    float apples = 10*students;
-    float bananas = 20*students;
-    float oranges = 35*students;
-    float total = apples+bananas+oranges;
+    float apples = 10 * students;
+    float bananas = 20 * students;
+    float oranges = 35 * students;
+    float total = apples + bananas + oranges;
 
     fill(0);
     text("Students: " + students, 50,70);
