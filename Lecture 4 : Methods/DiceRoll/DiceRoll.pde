@@ -17,35 +17,30 @@ void draw()
     background(255);
     String message="";
  
-    if (randomDiceRoll >= 0 && randomDiceRoll < 1)
-    {
+if (randomDiceRoll < 1)
+{
     message = "ONE";
-    }
- 
-    if (randomDiceRoll >= 1 && randomDiceRoll < 2)
-    {
+}
+else if (randomDiceRoll < 2)
+{
     message = "TWO";
-    }
- 
-    if (randomDiceRoll >= 2 && randomDiceRoll < 3)
-    {
+}
+else if (randomDiceRoll < 3)
+{
     message = "THREE";
-    }
-
-    if (randomDiceRoll >= 3 && randomDiceRoll < 4) 
-    {
+}
+else if (randomDiceRoll < 4)
+{
     message = "FOUR";
-    }
-
-    if (randomDiceRoll >= 4 && randomDiceRoll < 5) 
-    {
+}
+else if (randomDiceRoll < 5)
+{
     message = "FIVE";
-    }
-
-    if (randomDiceRoll >= 5 && randomDiceRoll < 6) 
-    {
+}
+else
+{
     message = "SIX";
-    }
+}
 
     textFont(myFont);
     text(message, width/2, height/2);
