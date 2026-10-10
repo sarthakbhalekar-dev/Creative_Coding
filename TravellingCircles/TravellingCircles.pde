@@ -8,6 +8,9 @@ void setup(){
 }
 
 void draw(){
-
+    background(255);
     ellipse (centreX,centreY,30,30);
+
+    centreX = centreX-1;
+    centreY = centreY-1;
 }
