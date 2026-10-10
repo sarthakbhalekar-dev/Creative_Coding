@@ -17,28 +17,22 @@ void draw()
     background(255);
     String message="";
  
-if (randomDiceRoll < 1)
-{
+if (randomDiceRoll < 1){
     message = "ONE";
 }
-else if (randomDiceRoll < 2)
-{
+else if (randomDiceRoll < 2){
     message = "TWO";
 }
-else if (randomDiceRoll < 3)
-{
+else if (randomDiceRoll < 3){
     message = "THREE";
 }
-else if (randomDiceRoll < 4)
-{
+else if (randomDiceRoll < 4){
     message = "FOUR";
 }
-else if (randomDiceRoll < 5)
-{
+else if (randomDiceRoll < 5){
     message = "FIVE";
 }
-else
-{
+else{
     message = "SIX";
 }
 
