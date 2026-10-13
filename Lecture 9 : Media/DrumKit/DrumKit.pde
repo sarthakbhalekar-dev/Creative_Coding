@@ -34,4 +34,13 @@ void keyPressed()
   {
     hiHat.play();
   }
+  else if (key == 'r')
+  {
+    kick.play();
+    snare.play();
+  }
+  else if (key == 'q')
+  {
+    exit();   // Quit the program if 'q' is pressed.
+  }
 }
