@@ -1,3 +1,5 @@
+//Station Sign
+
 float xPos;     // Position of text along x-axis
 float vx;       // Speed of text in x-direction
 String message; // The message
@@ -23,6 +25,7 @@ void draw()
   if (xPos<-600) {
     xPos = width;
   }
-  
+
   println(xPos);
 }
+

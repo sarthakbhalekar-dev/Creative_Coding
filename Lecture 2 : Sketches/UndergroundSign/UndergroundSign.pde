@@ -1,30 +1,31 @@
+// Underground Sign
+
 PFont myFont;
 
-void setup(){
-    size(600,600);
+void setup() {
+  size(600, 600);
 }
 
 
 
-void draw(){
+void draw() {
 
-    background(255);
+  background(255);
 
-    stroke(220,36,31);
-    strokeWeight(50);
-    fill (255);
-    circle(mouseX, mouseY,350);
+  stroke(220, 36, 31);
+  strokeWeight(50);
+  fill (255);
+  circle(mouseX, mouseY, 350);
 
-    noStroke();
-    fill(0,25,168);
-    rectMode (CENTER);
-    rect(mouseX, mouseY, 480, 90);
+  noStroke();
+  fill(0, 25, 168);
+  rectMode (CENTER);
+  rect(mouseX, mouseY, 480, 90);
 
-    myFont = createFont("Johnston", 32);
-    textFont(myFont);
-    fill (255);
-    textSize(60);
-    textAlign(CENTER,CENTER);
-    text("UNDERGROUND", mouseX, mouseY);
-
+  myFont = createFont("Johnston", 32);
+  textFont(myFont);
+  fill (255);
+  textSize(60);
+  textAlign(CENTER, CENTER);
+  text("UNDERGROUND", mouseX, mouseY);
 }

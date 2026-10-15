@@ -1,16 +1,18 @@
+// Blockhead
+
 //Background
-background(12,210,247);
+background(12, 210, 247);
 
 //Eyes Outline
-rect(50,20,30,40);
-rect(15,20,30,40);
+rect(50, 20, 30, 40);
+rect(15, 20, 30, 40);
 
 // Pupils
 fill(0);
-circle(65,40,10);
+circle(65, 40, 10);
 fill(0);
-circle(30,40,10);
+circle(30, 40, 10);
 
 //Mouth
 noFill();
-arc(45,75,20,10,0,PI);
+arc(45, 75, 20, 10, 0, PI);

@@ -1,27 +1,29 @@
+//Random Keyboard
+
 // Create a variable to store the current background color
 color bgColor;
 // Create a variable to store the font
-PFont myFont; 
+PFont myFont;
 
 void setup() {
   size(400, 400);
   frameRate(5);
-  
+
   // Set up the custom font (Size 48 to make it nice and visible)
   myFont = createFont("MarkerFelt-Wide", 48);
   textFont(myFont);
-  
+
   // Set the text color to black
   fill(0);
-  
+
   // Start with a default white background
-  bgColor = color(255); 
+  bgColor = color(255);
 }
 
 void draw() {
   // Use our variable to set the background
   background(bgColor);
-  
+
   // Draw the key character in a random spot
   text(key, random(30, width-30), random(40, height-30));
 }

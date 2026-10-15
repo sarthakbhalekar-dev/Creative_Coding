@@ -1,3 +1,5 @@
+//Playing with Cursor
+
 float x, y, r;                                     // <-- variables define the shape
 boolean isYellow, isRed, isInside, showMousePos;   // <-- variables capture the state
 
@@ -17,13 +19,12 @@ void draw () {
     fill(240);
   }
   ellipse (x, y, r, r);
-  
 }
 
 void mouseClicked() {
   // -- move ellipse - to mouseY,mouseX
-x = mouseX;
-y = mouseY;
+  x = mouseX;
+  y = mouseY;
   // -- if inside : isRed
   if (isInside) {
     isRed = true;
@@ -41,10 +42,10 @@ void mouseMoved() {
   // -- showMousePos
   println(mouseX, mouseY, millis());
   if (dist(mouseX, mouseY, x, y)<r/2) {
-  isInside = true;
-  }else{
-  isInside = false;
-}
+    isInside = true;
+  } else {
+    isInside = false;
+  }
   // -- isInside?
 }
 

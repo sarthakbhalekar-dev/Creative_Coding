@@ -1,3 +1,5 @@
+//Random Circles
+
 float[] diameters;
 
 
@@ -12,7 +14,7 @@ void setup() {
   diameters[2]=60;
   diameters[3]=40;
   diameters[4]=20;
-  
+
   printArray(diameters);
   printArray(diameters.length);
 }

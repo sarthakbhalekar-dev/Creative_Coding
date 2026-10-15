@@ -1,3 +1,5 @@
+//Peg Game
+
 // -- Global variables are declared first
 PFont myFont;
 // ball position
@@ -35,10 +37,10 @@ void setup() {
   peg3X = width - 24;
   peg3Y = 70;
 
-  xPos = 60;            
+  xPos = 60;
   yPos = 60;
 
-  vx = 3;             
+  vx = 3;
   vy = 1.5;
 
   myFont = createFont("Impact", 48);
@@ -97,3 +99,4 @@ void checkForPegCollision(float x, float y) {
     gameOver();
   }
 }
+

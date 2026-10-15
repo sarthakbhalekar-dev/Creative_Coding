@@ -1,3 +1,5 @@
+//Grid
+
 float[][] diameters;      // Declare a 2D array of floats
  
 void setup()
