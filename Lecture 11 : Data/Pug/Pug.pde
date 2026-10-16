@@ -2,7 +2,7 @@ PImage pic;
 
 void setup() {
   size(600, 600);
-  pic = loadImage("pug.jpg");
+  pic = loadImage("Pug.jpg");
 
 
   println(pic.width);
@@ -12,5 +12,5 @@ void setup() {
 
 
 void draw() {
-  image(pic, 0, 100, width, width*pic.height/pic.width);
+  image(pic, mouseX, mouseY, width, width*pic.height/pic.width);
 }

@@ -1,4 +1,4 @@
-String [] lines = loadStrings("someData.csv");
+String [] lines = loadStrings("SomeData.csv");
 println(lines.length);
 println(lines[2]);
 
