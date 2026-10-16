@@ -1,4 +1,4 @@
-String s = "I know Pneumonoultramicroscopicsilicovolcanoconiosis ";
+String s = "A quiet astronomer meticulously observed an extraordinarily bright star. ";
 
 char splitter = 's';
 
