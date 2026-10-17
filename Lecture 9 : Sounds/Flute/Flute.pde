@@ -5,7 +5,7 @@ SoundFile mySample;
 void setup()
 {
   size(300, 200);
-  mySample  = new SoundFile(this,"c01.wav");
+  mySample  = new SoundFile(this,"Flute.wav");
 }
  
 void draw()
@@ -14,7 +14,7 @@ void draw()
   fill(0);
   textAlign(CENTER,CENTER);
   textSize(18);
-  text("Press space to test", width/2, height/2);
+  text("Press Space to Play!", width/2, height/2);
 }
  
 void keyPressed()

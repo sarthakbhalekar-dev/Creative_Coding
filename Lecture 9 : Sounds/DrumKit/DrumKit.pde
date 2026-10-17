@@ -6,12 +6,14 @@ SoundFile kick, snare, hiHat;
  
 void setup()
 {
-  size(300, 200);
+  size(550, 100);
+  textSize(18);
+  text("Press Space for Kick, S for Snare, H for HiHat, R for Kick+Snare, Q to Quit", 10, 20);
  
   // Initialise SoundFile objects to contain valid sound files (WAV):
-  kick  = new SoundFile(this,"kickDrum.wav");
-  snare = new SoundFile(this,"snareDrum.wav");
-  hiHat = new SoundFile(this,"hiHat.wav");
+  kick  = new SoundFile(this,"KickDrum.wav");
+  snare = new SoundFile(this,"SnareDrum.wav");
+  hiHat = new SoundFile(this,"HiHat.wav");
 }
  
 void draw()

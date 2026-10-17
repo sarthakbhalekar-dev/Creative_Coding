@@ -11,7 +11,7 @@ void setup()
   baseLine = 20;
  
   // Load the sound file.
-  SoundFile sound = new SoundFile(this, "drivingambition.mp3");
+  SoundFile sound = new SoundFile(this, "DrivingAmbition.mp3");
   sound.play();
  
   // Tell the Fast Fourier Transformer to process the song file.
