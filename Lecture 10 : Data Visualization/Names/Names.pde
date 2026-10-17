@@ -8,7 +8,7 @@ void setup()
   textSize(16);  // -- try changing the size of any text added with text();
 
   // -- load the text from the file into the array:
-  names = loadStrings("namesData.txt");
+  names = loadStrings("NameData.txt");
 }
 
 void draw()

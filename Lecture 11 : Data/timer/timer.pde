@@ -1,4 +1,4 @@
-void setup () {
+void setup(){
   size(1400, 20);
   stroke(32);
   textSize(20);
@@ -7,7 +7,7 @@ void setup () {
 }
 
 
-void draw() {
+void draw(){
   int mm = minute();
   int ss = second();
 
