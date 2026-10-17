@@ -1,5 +1,4 @@
 
-
 class Ball
 {
   PVector position;    // Position of the ball.
