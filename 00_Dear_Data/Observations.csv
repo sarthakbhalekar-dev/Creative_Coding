@@ -1,0 +1,101 @@
+ID,Day,Time_Min,Sky,Street,Lights
+1,1,600,Clear,Medium,Off
+2,1,852,Cloudy,Medium,Off
+3,1,964,Cloudy,Medium,Off
+4,1,1028,Cloudy,Medium,Off
+5,1,1098,Dusk,Medium,On
+6,1,1141,Night,Medium,On
+7,1,1205,Clear Night,Low,On
+8,1,1328,Cloudy Night,Low,On
+9,1,1368,Overcast Night,Low,On
+10,2,495,Overcast,Low,Off
+11,2,557,Sunny,Low,Off
+12,2,643,Partially Cloudy,Medium,Off
+13,2,704,Sunny,Medium,Off
+14,2,754,Partially Cloudy,Medium,Off
+15,2,888,Clear,Medium,Off
+16,2,925,Cloudy,Medium,Off
+17,2,947,Overcast,Medium,Off
+18,2,998,Cloudy,Medium,Off
+19,2,1042,Partially Cloudy,Medium,Off
+20,2,1091,Dusk,Medium,On
+21,2,1157,Cloudy Night,Low,On
+22,2,1217,Overcast Night,Low,On
+23,2,1241,Overcast Night,Low,On
+24,2,1306,Overcast Night,Low,On
+25,3,427,Dawn,Low,On
+26,3,485,Overcast,Low,Off
+27,3,683,Overcast,Medium,Off
+28,3,731,Rainy,Medium,Off
+29,3,761,Overcast,Medium,Off
+30,3,968,Overcast,Medium,Off
+31,3,1063,Overcast,Medium,Off
+32,3,1100,Dusk,Medium,On
+33,3,1141,Overcast Night,Low,On
+34,3,1191,Rainy Night,Low,On
+35,3,1276,Overcast Night,Low,On
+36,3,1320,Overcast Night,Low,On
+37,4,448,Clear Dawn,Low,On
+38,4,502,Partially Cloudy,Medium,Off
+39,4,666,Rainy,Medium,Off
+40,4,704,Sunny,Medium,Off
+41,4,966,Partially Cloudy,Medium,Off
+42,4,1019,Clear,Medium,Off
+43,4,1069,Clear Sunset,Medium,Off
+44,4,1272,Clear Night,Low,On
+45,5,465,Clear Dawn,Low,On
+46,5,521,Sunny,Medium,Off
+47,5,555,Sunny,Medium,Off
+48,5,619,Sunny,Medium,Off
+49,5,854,Partially Cloudy,Medium,Off
+50,5,1072,Dusk,Medium,On
+51,5,1316,Clear Night,Low,On
+52,6,488,Overcast,Low,Off
+53,6,552,Overcast,Medium,Off
+54,6,576,Partially Cloudy,Medium,Off
+55,6,637,Overcast,Medium,Off
+56,6,678,Overcast,Medium,Off
+57,6,736,Overcast,Medium,Off
+58,6,1017,Partially Cloudy,Medium,Off
+59,6,1178,Clear Night,Low,On
+60,6,1264,Cloudy Night,Low,On
+61,7,540,Rainy,Medium,Off
+62,7,600,Overcast,Medium,Off
+63,7,645,Partially Cloudy,Medium,Off
+64,7,730,Sunny,Medium,Off
+65,7,908,Clear,Medium,Off
+66,7,977,Clear,Medium,Off
+67,7,1004,Clear,Medium,Off
+68,7,1129,Clear Night,Medium,On
+69,8,408,Clear Dawn,Low,On
+70,8,470,Sunny,Low,Off
+71,8,639,Sunny,Medium,Off
+72,8,721,Partially Cloudy,Medium,Off
+73,8,912,Partially Cloudy,Medium,Off
+74,8,969,Overcast,Medium,Off
+75,8,1019,Overcast,Medium,Off
+76,8,1082,Dusk,Medium,On
+77,8,1131,Clear Night,Medium,On
+78,8,1197,Overcast Night,Medium,On
+79,9,455,Clear Dawn,Low,Off
+80,9,588,Sunny,Medium,Off
+81,9,712,Overcast,Medium,Off
+82,9,855,Overcast,Medium,Off
+83,9,1077,Dusk,Medium,On
+84,9,1213,Rainy Night,Low,On
+85,10,430,Clear Dawn,Low,On
+86,10,605,Partially Cloudy,Medium,Off
+87,10,765,Partially Cloudy,Medium,Off
+88,10,1000,Clear Sunset,Medium,Off
+89,10,1196,Cloudy Night,Low,On
+90,10,1286,Overcast Night,Low,On
+91,10,1395,Overcast Night,Low,On
+92,11,760,Overcast,Medium,Off
+93,11,893,Rainy,Medium,Off
+94,11,1063,Dusk,Medium,On
+95,12,529,Overcast,Medium,Off
+96,12,705,Overcast,Medium,Off
+97,12,825,Overcast,Medium,Off
+98,12,1030,Partially Cloudy,Medium,Off
+99,12,1095,Dusk,Medium,On
+100,12,1185,Clear Night,Low,On
