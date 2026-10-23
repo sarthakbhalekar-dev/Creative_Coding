@@ -6,7 +6,7 @@ Welcome to my Creative Coding repository. This repository tracks my weekly lab e
 
 ## 📌 Module Coursework
 
-- **[Dear Data 100 Project](./Dear%20Data%20Project/MyBalconyDiary)**
+- **[Dear Data 100 Project](./Dear%20Data%20Project/Assessment)**
 - **Dataset:** [`Observations.csv`](./Dear%20Data%20Project/Observations.csv)
 
 ---
