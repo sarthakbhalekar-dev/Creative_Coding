@@ -3,6 +3,7 @@
 void setup() {
   size(600, 400);
   noLoop();
+  
 }
 
 void draw() {
