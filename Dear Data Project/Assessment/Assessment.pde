@@ -1,8 +1,11 @@
 // My Balcony Diary
+PFont myFont;
 
 void setup() {
   size(600, 400);
   noLoop();
+
+  myFont = createFont("Zapfino", 16);
   
 }
 
@@ -12,9 +15,9 @@ void draw() {
   // Clouds
   noStroke();
   fill(245);
-  ellipse(130, 90, 100, 45);
-  ellipse(175, 80, 90, 55);
-  ellipse(215, 95, 100, 40);
+  ellipse(130, 100, 100, 45);
+  ellipse(175, 90, 90, 55);
+  ellipse(215, 105, 100, 40);
 
   // Building
   fill(65, 70, 80);
@@ -30,5 +33,6 @@ void draw() {
   // Caption
   fill(30);
   textSize(18);
-  text("My Balcony Diary — First Experiment", 20, 35);
+  textFont(myFont);
+  text("London Through My Window.", 20, 35);
 }
