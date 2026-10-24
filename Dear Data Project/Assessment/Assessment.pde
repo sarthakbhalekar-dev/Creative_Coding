@@ -1,6 +1,10 @@
 // My Balcony Diary
-// Music Credit : "Soft Piano" by AtlasMusic 
+// Music Credit : "Soft Piano" by AtlasMusic
+
+import processing.sound.*; // Import the Sound library
+
 PFont myFont;
+SoundFile bgMusic;
 
 boolean isNight = false;
 float cloudX = 130; // Starting X position for the primary cloud segment
@@ -8,8 +12,12 @@ float cloudSpeed = 0.5; // Controls how fast the cloud moves
 
 void setup() {
   size(600, 400);
-  // Removed noLoop() so draw() loops continuously
   myFont = createFont("Zapfino", 16);
+
+  // Load and play background music loop
+  bgMusic = new SoundFile(this, "SoftPiano.mp3");
+  bgMusic.loop();
+  bgMusic.amp(0.6); // Set volume (0.0 to 1.0)
 }
 
 void draw() {
@@ -40,7 +48,7 @@ void draw() {
   rect(320, 250, 30, 40);
 
   // Caption
-  fill(30);
+  fill(isNight ? 220 : 30); // Adjust text color for contrast at night
   textSize(18);
   textFont(myFont);
   text("London Through My Window.", 20, 35);
@@ -49,7 +57,7 @@ void draw() {
 // Custom function to draw the combined cloud relative to (x, y)
 void drawCloud(float x, float y) {
   noStroke();
-  fill(245);
+  fill(isNight ? 180 : 245); // Darken cloud slightly at night
   ellipse(x, y, 100, 45);
   ellipse(x + 45, y - 10, 90, 55);
   ellipse(x + 85, y + 5, 100, 40);
