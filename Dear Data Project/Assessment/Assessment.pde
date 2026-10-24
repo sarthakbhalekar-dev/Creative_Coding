@@ -1,6 +1,8 @@
 // My Balcony Diary
 PFont myFont;
 
+boolean isNight = false;
+
 void setup() {
   size(600, 400);
   noLoop();
@@ -10,7 +12,12 @@ void setup() {
 }
 
 void draw() {
-  background(135, 190, 230); // Sky
+
+  if (isNight) {
+    background(0, 0, 128); // Night Sky
+  } else {
+    background(135, 190, 230); // Day Sky
+  }
 
   // Clouds
   noStroke();
@@ -35,4 +42,9 @@ void draw() {
   textSize(18);
   textFont(myFont);
   text("London Through My Window.", 20, 35);
+}
+
+void mousePressed(){
+  isNight = !isNight; // Toggle between day and night
+  redraw(); // Redraw the scene with the new background
 }
