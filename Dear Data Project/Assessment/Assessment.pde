@@ -1,4 +1,5 @@
 // My Balcony Diary
+// Music Credit : "Soft Piano" by AtlasMusic 
 PFont myFont;
 
 boolean isNight = false;
