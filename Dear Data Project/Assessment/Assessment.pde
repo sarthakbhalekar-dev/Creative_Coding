@@ -1,6 +1,7 @@
 // My Balcony Diary
 // Music Credit : "Soft Piano" by AtlasMusic
 
+
 import processing.sound.*; // Import the Sound library
 
 PFont myFont;
@@ -8,12 +9,15 @@ SoundFile bgMusic;
 
 Table logTable;
 int currentRow = 0;
+boolean draggingSlider = false;
+float sliderLeft = 40;
+float sliderRight = 560;
 
 float cloudX = 130; // Starting X position for the primary cloud segment
 float cloudSpeed = 0.5; // Controls how fast the cloud moves
 
 void setup() {
-  size(600, 400);
+  size(600, 450);
   myFont = createFont("Zapfino", 16);
 
   // Load and play background music loop
@@ -77,6 +81,29 @@ void draw() {
   // Show observation data at the bottom
   textSize(14);
   text("Day: " + day + " | Time: " + timeMin + "m | Sky: " + sky, 20, 380);
+
+  // 6. Slider to navigate through the CSV observations
+  float sliderY = 415;
+
+  // Draw the slider track
+  stroke(100);
+  strokeWeight(4);
+  line(sliderLeft, sliderY, sliderRight, sliderY);
+
+  // Map the current observation to the slider position
+  float sliderX = map(currentRow, 0, logTable.getRowCount() - 1,
+    sliderLeft, sliderRight);
+
+  // Draw the slider handle
+  noStroke();
+  fill(255, 180, 70);
+  ellipse(sliderX, sliderY, 18, 18);
+
+  // Display the current observation number
+  fill(30);
+  textSize(12);
+  text("Observation " + (currentRow + 1) + " / " + logTable.getRowCount(),
+    40, 440);
 }
 
 // Custom function to draw the combined cloud relative to (x, y)
@@ -88,7 +115,33 @@ void drawCloud(float x, float y, String sky) {
   ellipse(x + 85, y + 5, 100, 40);
 }
 
-// Click the mouse to step through the CSV observations one by one!
+// Detect when the user clicks the slider
 void mousePressed() {
-  currentRow = (currentRow + 1) % logTable.getRowCount();
+  if (mouseY >= 400 && mouseY <= 430) {
+    draggingSlider = true;
+    updateSlider();
+  } else {
+    currentRow = (currentRow + 1) % logTable.getRowCount();
+  }
 }
+
+// Update the observation while dragging
+void mouseDragged() {
+  if (draggingSlider) {
+    updateSlider();
+  }
+}
+
+// Stop dragging when the mouse is released
+void mouseReleased() {
+  draggingSlider = false;
+}
+
+// Convert the mouse's horizontal position into a CSV row
+void updateSlider() {
+  float sliderPosition = constrain(mouseX, sliderLeft, sliderRight);
+
+  currentRow = round(map(sliderPosition, sliderLeft, sliderRight,
+    0, logTable.getRowCount() - 1));
+}
+
