@@ -1,147 +1,174 @@
-// My Balcony Diary
+// My Balcony Diary - London Through My Window
 // Music Credit : "Soft Piano" by AtlasMusic
 
-
-import processing.sound.*; // Import the Sound library
-
-PFont myFont;
+//Imported the Sound Library
+import processing.sound.*;
 SoundFile bgMusic;
 
+// Font Variable
+PFont myFont;
+
+// Table (Observations.csv)
 Table logTable;
 int currentRow = 0;
 boolean draggingSlider = false;
 float sliderLeft = 40;
 float sliderRight = 560;
 
-float cloudX = 130; // Starting X position for the primary cloud segment
-float cloudSpeed = 0.5; // Controls how fast the cloud moves
+// Cloud variables - Starting Position and Speed
+float cloudX = 130;
+float cloudSpeed = 0.5;
+
 
 void setup() {
   size(600, 450);
-  myFont = createFont("Zapfino", 16);
 
-  // Load and play background music loop
+  // Load & Play Music (Loop)
   bgMusic = new SoundFile(this, "SoftPiano.mp3");
   bgMusic.loop();
-  bgMusic.amp(0.6); // Set volume (0.0 to 1.0)
+  // Set Volume to 60% of the Original Audio
+  bgMusic.amp(0.6);
 
-  // Logging the observations from the CSV file
+  // Created Font
+  myFont = createFont("Zapfino", 16);
+
+  // Load the CSV File
   logTable = loadTable("Observations.csv", "header");
 }
 
 void draw() {
-  // Read current row values from the CSV
+
+
+  // Read Row Values from CSV File
+
   TableRow row = logTable.getRow(currentRow);
+  // Adding Sky
   String sky = row.getString("Sky");
+  //Adding Lights
   String lights = row.getString("Lights");
+  //Adding Day
   int day = row.getInt("Day");
+  //Adding Time_Min
   int timeMin = row.getInt("Time_Min");
 
-  // 1. Dynamic background color driven by CSV
+
+  // 1. Dynamic Background Color According to Data (Needs More Modficiation)
   if (sky.contains("Night")) {
-    background(20, 25, 60); // Dark Blue
+    background(20, 25, 60); // Dark Blue (Needs Some Stars!)
   } else if (sky.contains("Dawn") || sky.contains("Dusk")) {
-    background(210, 120, 90); // Warm Orange
+    background(210, 120, 90); // Warm Orange (Needs Some...Dynamic Colors?)
   } else if (sky.equals("Sunny") || sky.equals("Clear")) {
     background(135, 190, 230); // Daylight Blue
   } else {
     background(160, 175, 185); // Overcast Gray
   }
 
-  // 2. Draw and update moving cloud
+  // 2. Draw & Move the Cloud (Needs More Clouds?)
   drawCloud(cloudX, 100, sky);
   cloudX += cloudSpeed;
 
-  // Reset cloud position when it moves completely off the right edge
+  // Reset Cloud Position (Similar to Next Station is Angel..)
   if (cloudX > width + 100) {
     cloudX = -150;
   }
 
-  // 3. Building
+  // 3. Building (Needs More Structure?)
   fill(65, 70, 80);
   rect(230, 150, 140, 250);
 
-  // 4. Four illuminated windows driven by CSV "Lights" column
+  // 4. Window Lights (Need More Windows!)
   if (lights.equals("On")) {
-    fill(255, 220, 100); // Bright Yellow when Lights == "On"
+    fill(255, 220, 100); // Bright Yellow
   } else {
-    fill(80, 85, 95);     // Dark Gray when Lights == "Off"
+    fill(80, 85, 95);    // Dark Grey
   }
+
+  // Only 4 Windows...
   rect(250, 180, 30, 40);
   rect(320, 180, 30, 40);
   rect(250, 250, 30, 40);
   rect(320, 250, 30, 40);
 
-  // 5. Caption and CSV Data display
-  fill(sky.contains("Night") ? 220 : 30); // Contrast text based on night/day
+  // 5. Data Display Text
+  // Heading
+  fill(sky.contains("Night") ? 220 : 30); // Contrast Text Based on Background
   textSize(18);
   textFont(myFont);
-  text("London Through My Window.", 20, 35);
+  text("My Balcony Diary", 20, 35);
 
-  // Show observation data at the bottom
+  // Observation Date (Bottom)
   textSize(14);
-  text("Day: " + day + " | Time: " + timeMin + "m | Sky: " + sky, 20, 380);
+  text("Day: " + day + " | Time: " + formatTime(timeMin) + " | Sky: " + sky, 20, 380);
 
-  // 6. Slider to navigate through the CSV observations
+  // 6. Slider to Navigate Through The Observations
   float sliderY = 415;
 
-  // Draw the slider track
+  // Draw the Slider Track
   stroke(100);
   strokeWeight(4);
   line(sliderLeft, sliderY, sliderRight, sliderY);
 
-  // Map the current observation to the slider position
+  // Map Current Observation to the Slider's Position
   float sliderX = map(currentRow, 0, logTable.getRowCount() - 1,
     sliderLeft, sliderRight);
 
-  // Draw the slider handle
+  // Draw the Slider's Handle
   noStroke();
   fill(255, 180, 70);
   ellipse(sliderX, sliderY, 18, 18);
 
-  // Display the current observation number
-  fill(30);
+  // Display Current Observation Number
+  fill(sky.contains("Night") ? 220 : 30);
   textSize(12);
   text("Observation " + (currentRow + 1) + " / " + logTable.getRowCount(),
     40, 440);
 }
 
-// Custom function to draw the combined cloud relative to (x, y)
+//Custom Methods
+
+// Convert the Mouse's Horizontal Position into a CSV row
+void updateSlider() {
+  float sliderPosition = constrain(mouseX, sliderLeft, sliderRight);
+
+  currentRow = round(map(sliderPosition, sliderLeft, sliderRight,
+    0, logTable.getRowCount() - 1)); // Zero Based Indexing
+}
+
+// Draw the Combined Cloud relative to (x, y)
 void drawCloud(float x, float y, String sky) {
   noStroke();
-  fill(sky.contains("Night") ? 180 : 245); // Darken cloud slightly at night
+  fill(sky.contains("Night") ? 180 : 245); // Darken Cloud at Night
   ellipse(x, y, 100, 45);
   ellipse(x + 45, y - 10, 90, 55);
   ellipse(x + 85, y + 5, 100, 40);
 }
 
-// Detect when the user clicks the slider
+// Slider Interaction (By The User)
 void mousePressed() {
   if (mouseY >= 400 && mouseY <= 430) {
     draggingSlider = true;
     updateSlider();
   } else {
-    currentRow = (currentRow + 1) % logTable.getRowCount();
+    currentRow = (currentRow + 1) % logTable.getRowCount(); // Due to Zero Based Indexing
   }
 }
 
-// Update the observation while dragging
+// Update Observation while Dragging
 void mouseDragged() {
   if (draggingSlider) {
     updateSlider();
   }
 }
 
-// Stop dragging when the mouse is released
+// Stop Dragging when Mouse is Released
 void mouseReleased() {
   draggingSlider = false;
 }
 
-// Convert the mouse's horizontal position into a CSV row
-void updateSlider() {
-  float sliderPosition = constrain(mouseX, sliderLeft, sliderRight);
+// Convert Minutes to Readable Time
+String formatTime(int minutes) {
+  int hours = minutes / 60;
+  int mins = minutes % 60;
 
-  currentRow = round(map(sliderPosition, sliderLeft, sliderRight,
-    0, logTable.getRowCount() - 1));
+  return nf(hours, 2) + ":" + nf(mins, 2);
 }
-
