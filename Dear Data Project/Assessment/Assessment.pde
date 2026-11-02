@@ -52,16 +52,8 @@ void draw() {
   int timeMin = row.getInt("Time_Min");
 
 
-  // 1. Dynamic Background Color According to Data (Needs More Modficiation)
-  if (sky.contains("Night")) {
-    background(20, 25, 60); // Dark Blue (Needs Some Stars!)
-  } else if (sky.contains("Dawn") || sky.contains("Dusk")) {
-    background(210, 120, 90); // Warm Orange (Needs Some...Dynamic Colors?)
-  } else if (sky.equals("Sunny") || sky.equals("Clear")) {
-    background(135, 190, 230); // Daylight Blue
-  } else {
-    background(160, 175, 185); // Overcast Gray
-  }
+  // 1. Dynamic Sky Gradient Based on CSV Data
+  drawSky(sky);
 
   // 2. Draw & Move the Cloud (Needs More Clouds?)
   drawCloud(cloudX, 100, sky);
@@ -171,4 +163,36 @@ String formatTime(int minutes) {
   int mins = minutes % 60;
 
   return nf(hours, 2) + ":" + nf(mins, 2);
+}
+
+
+// Draw a Gradient Sky Based on the CSV Sky Condition
+void drawSky(String sky) {
+  color topColor;
+  color bottomColor;
+
+  if (sky.contains("Night")) {
+    topColor = color(10, 15, 45);
+    bottomColor = color(65, 70, 110);
+  } else if (sky.equals("Dusk") || sky.equals("Dawn")) {
+    topColor = color(75, 85, 155);
+    bottomColor = color(255, 155, 95);
+  } else if (sky.equals("Sunny") || sky.equals("Clear")) {
+    topColor = color(65, 145, 220);
+    bottomColor = color(195, 225, 250);
+  } else {
+    topColor = color(95, 110, 135);
+    bottomColor = color(195, 200, 205);
+  }
+
+  // Draw Horizontal Lines to Create the Gradient
+  for (int y = 0; y < height; y++) {
+    float amount = map(y, 0, height - 1, 0, 1);
+    color blended = lerpColor(topColor, bottomColor, amount);
+
+    stroke(blended);
+    line(0, y, width, y);
+  }
+
+  noStroke();
 }
