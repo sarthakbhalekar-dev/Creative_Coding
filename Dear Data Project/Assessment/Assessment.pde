@@ -1,119 +1,137 @@
 // My Balcony Diary - London Through My Window
 // Music Credit : "Soft Piano" by AtlasMusic
 
-//Imported the Sound Library
 import processing.sound.*;
+
+// Variables
 SoundFile bgMusic;
 
-// Font Variable
 PFont myFont;
+PFont dataFont;
 
-// Table (Observations.csv)
 Table logTable;
 int currentRow = 0;
 boolean draggingSlider = false;
 float sliderLeft = 40;
 float sliderRight = 560;
 
-// Cloud variables - Starting Position and Speed
 float cloudX = 130;
 float cloudSpeed = 0.5;
 
-
+// Setup
 void setup() {
   size(600, 450);
-
-  // Load & Play Music (Loop)
   bgMusic = new SoundFile(this, "SoftPiano.mp3");
   bgMusic.loop();
-  // Set Volume to 60% of the Original Audio
   bgMusic.amp(0.6);
 
-  // Created Font
   myFont = createFont("Zapfino", 16);
+  dataFont = createFont("Avenir", 14);
 
-  // Load the CSV File
   logTable = loadTable("Observations.csv", "header");
 }
 
+// Draw
 void draw() {
-
 
   // Read Row Values from CSV File
 
   TableRow row = logTable.getRow(currentRow);
-  // Adding Sky
   String sky = row.getString("Sky");
-  //Adding Lights
   String lights = row.getString("Lights");
-  //Adding Day
   int day = row.getInt("Day");
-  //Adding Time_Min
   int timeMin = row.getInt("Time_Min");
+  String street = row.getString("Street");
 
 
-  // 1. Dynamic Sky Gradient Based on CSV Data
+  // 1. Dynamic Sky Gradient
   drawSky(sky);
 
-  // 2. Draw & Move the Cloud (Needs More Clouds?)
-  drawCloud(cloudX, 100, sky);
+  // 2. Draw & Move the Cloud
+  drawCloud(cloudX, 190, sky);
   cloudX += cloudSpeed;
-
-  // Reset Cloud Position (Similar to Next Station is Angel..)
+  // Reset Cloud Position When It Moves Off-Screen
   if (cloudX > width + 100) {
     cloudX = -150;
   }
 
-  // 3. Building (Needs More Structure?)
+  // 3. Building Structure
+  noStroke();
+  // Main Building
   fill(65, 70, 80);
-  rect(230, 150, 140, 250);
+  rect(230, 150, 140, height - 150);
+  // Building Roof
+  fill(50, 55, 65);
+  rect(225, 140, 150, 15);
 
-  // 4. Window Lights (Need More Windows!)
-  if (lights.equals("On")) {
-    fill(255, 220, 100); // Bright Yellow
-  } else {
-    fill(80, 85, 95);    // Dark Grey
+  // 4. Window Lights
+  for (int floor = 0; floor < 5; floor++) {
+    for (int column = 0; column < 3; column++) {
+
+      int windowX = 245 + column * 40;
+      int windowY = 170 + floor * 55;
+
+      // Window Frame
+      fill(35, 40, 50);
+      rect(windowX - 2, windowY - 2, 29, 34);
+      // Window Light
+      if (lights.equals("On")) {
+        fill(255, 220, 120);
+      } else {
+        fill(95, 110, 125);
+      }
+      rect(windowX, windowY, 25, 30);
+      // Window Divider
+      stroke(45, 50, 60);
+      strokeWeight(2);
+      line(windowX + 12, windowY,
+        windowX + 12, windowY + 30);
+      noStroke();
+    }
   }
 
-  // Only 4 Windows...
-  rect(250, 180, 30, 40);
-  rect(320, 180, 30, 40);
-  rect(250, 250, 30, 40);
-  rect(320, 250, 30, 40);
-
   // 5. Data Display Text
-  // Heading
-  fill(sky.contains("Night") ? 220 : 30); // Contrast Text Based on Background
-  textSize(18);
+
+  // Title
   textFont(myFont);
+  textSize(18);
+  textAlign(LEFT);
+  fill(sky.contains("Night") ? 235 : 30);
   text("My Balcony Diary", 20, 35);
 
-  // Observation Date (Bottom)
-  textSize(14);
-  text("Day: " + day + " | Time: " + formatTime(timeMin) + " | Sky: " + sky, 20, 380);
+  // Observation Details
+  textFont(dataFont);
+  textSize(12);
+  textAlign(CENTER);
+  fill(sky.contains("Night") ? 235 : 30);
+
+  text("Day: " + day
+    + "  |  Time: " + formatTime(timeMin)
+    + "  |  Sky: " + sky
+    + "  |  Street: " + street, width / 2, 68);
 
   // 6. Slider to Navigate Through The Observations
-  float sliderY = 415;
+  float sliderY = 95;
 
   // Draw the Slider Track
   stroke(100);
   strokeWeight(4);
   line(sliderLeft, sliderY, sliderRight, sliderY);
-
   // Map Current Observation to the Slider's Position
   float sliderX = map(currentRow, 0, logTable.getRowCount() - 1,
     sliderLeft, sliderRight);
-
   // Draw the Slider's Handle
   noStroke();
   fill(255, 180, 70);
   ellipse(sliderX, sliderY, 18, 18);
-
   // Display Current Observation Number
-  fill(sky.contains("Night") ? 220 : 30);
+  textFont(dataFont);
+  textAlign(CENTER);
   textSize(12);
-  text("Observation " + (currentRow + 1) + " / " + logTable.getRowCount(),
-    40, 440);
+  fill(sky.contains("Night") ? 235 : 30);
+
+  text("Observation " + (currentRow + 1)
+    + " / " + logTable.getRowCount(), width / 2, 125);
 }
 
 //Custom Methods
@@ -137,7 +155,7 @@ void drawCloud(float x, float y, String sky) {
 
 // Slider Interaction (By The User)
 void mousePressed() {
-  if (mouseY >= 400 && mouseY <= 430) {
+  if (mouseY >= 80 && mouseY <= 110) {
     draggingSlider = true;
     updateSlider();
   } else {
@@ -166,7 +184,7 @@ String formatTime(int minutes) {
 }
 
 
-// Draw a Gradient Sky Based on the CSV Sky Condition
+// Draw Sky Gradient Based on the Sky Condition
 void drawSky(String sky) {
   color topColor;
   color bottomColor;
