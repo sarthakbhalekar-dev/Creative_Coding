@@ -96,14 +96,14 @@ void draw() {
   textFont(myFont);
   textSize(18);
   textAlign(LEFT);
-  fill(sky.contains("Night") ? 235 : 30);
+  fill(isNight(sky) ? 235 : 30);
   text("My Balcony Diary", 20, 35);
 
   // Observation Details
   textFont(dataFont);
   textSize(12);
   textAlign(CENTER);
-  fill(sky.contains("Night") ? 235 : 30);
+  fill(isNight(sky) ? 235 : 30);
 
   text("Day: " + day
     + "  |  Time: " + formatTime(timeMin)
@@ -128,7 +128,7 @@ void draw() {
   textFont(dataFont);
   textAlign(CENTER);
   textSize(12);
-  fill(sky.contains("Night") ? 235 : 30);
+  fill(isNight(sky) ? 235 : 30);
 
   text("Observation " + (currentRow + 1)
     + " / " + logTable.getRowCount(), width / 2, 125);
@@ -147,7 +147,7 @@ void updateSlider() {
 // Draw the Combined Cloud relative to (x, y)
 void drawCloud(float x, float y, String sky) {
   noStroke();
-  fill(sky.contains("Night") ? 180 : 245); // Darken Cloud at Night
+  fill(isNight(sky) ? 180 : 245); // Darken Cloud at Night
   ellipse(x, y, 100, 45);
   ellipse(x + 45, y - 10, 90, 55);
   ellipse(x + 85, y + 5, 100, 40);
@@ -189,7 +189,7 @@ void drawSky(String sky) {
   color topColor;
   color bottomColor;
 
-  if (sky.contains("Night")) {
+  if (isNight(sky)) {
     topColor = color(10, 15, 45);
     bottomColor = color(65, 70, 110);
   } else if (sky.equals("Dusk") || sky.equals("Dawn")) {
@@ -213,4 +213,10 @@ void drawSky(String sky) {
   }
 
   noStroke();
+}
+
+
+// Check if the Sky Condition Indicates Night
+boolean isNight(String sky) {
+  return sky.contains("Night");
 }
