@@ -1,5 +1,5 @@
 // My Balcony Diary - London Through My Window
-// Music Credit : "Soft Piano" by AtlasMusic
+// Music Credit : "Street City Traffic Voices Busy London" by mzui (Freesound)
 
 import processing.sound.*;
 
@@ -21,7 +21,7 @@ float cloudSpeed = 0.5;
 // Setup
 void setup() {
   size(600, 450);
-  bgMusic = new SoundFile(this, "SoftPiano.mp3");
+  bgMusic = new SoundFile(this, "CityStreetNoise.mp3");
   bgMusic.loop();
   bgMusic.amp(0.6);
 
